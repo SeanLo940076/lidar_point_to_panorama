@@ -1,0 +1,48 @@
+# -------------------------
+# Yu Hsiang Lo 
+# 2023/09/26
+# -------------------------
+
+
+# rotation_angle : 旋轉 LiDAR 資料，沿著Z軸旋轉x度
+# minDistance : 過濾 LiDAR 資料，最小距離限制
+# maxDistance : 過濾 LiDAR 資料，最小距離限制
+# minHeight : 過濾 LiDAR 資料，高度低於 (裝置實際高度 + minHeight) 則過濾 ex: minHeight = -1.7 LiDAR裝於2公尺高 過濾低於 30 公分物件 
+# maxHeight : 過濾 LiDAR 資料，高度高於 (裝置實際高度 + maxHeight) 則過濾
+# minIntensity : 過濾 LiDAR 資料，反射強度低於 minIntensity 則過濾
+# maxIntensity : 過濾 LiDAR 資料，反射強度高於 maxIntensity 則過濾
+
+# h_res : LiDAR 的水平解析度，可參照LiDAR手冊，或是自行計算需要展開成多大張的影像(x軸) 公式：h_res = LiDAR的垂水平析度(360)/影像解析度
+# v_res : LiDAR 的垂直解析度，可參照LiDAR手冊，或是自行計算需要展開成多大張的影像(y軸) 公式：v_res = LiDAR的垂直解析度(20)/影像解析度
+
+# h_fov_min, h_fov_max : 可調整需要多少範圍的 LiDAR 資料
+# point_radius : 投影成 2D 影像時的點大小
+# maxDist : 多少距離之後的點，統一投影成背景
+
+filter_node_input_topic: "/points_raw"
+filter_node_output_topic: "/filtered/pointcloud"
+
+rotate_node_input_topic: "/filtered/pointcloud"
+rotate_node_output_topic: "/rotated/pointcloud"
+
+convert_node_input_topic: "/rotated/pointcloud"
+convert_node_output_topic: "/panoramic_image"
+
+panorama_node_input_topic: "/points_raw"
+panorama_node_output_topic: "/panoramic_image"
+
+rotation_angle: 151.0
+minDistance: 1.0
+maxDistance: 100.0
+minHeight: -1.70
+maxHeight: 2.15
+minIntensity: 0.01
+maxIntensity: 255.0
+h_res: 0.143397729535949  # 0.2
+v_res: 0.10928962 # 1.33
+h_fov_min: -180.0
+h_fov_max: 180.0
+v_fov_min: -10.0
+v_fov_max: 10.0
+point_radius: 1
+maxDist: 30.0

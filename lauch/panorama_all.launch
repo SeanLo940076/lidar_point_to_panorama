@@ -1,0 +1,9 @@
+
+<launch>
+    <!-- Load parameters from parameters.yaml -->
+    <rosparam file="$(find lidar_point_to_panorama)/config/parameters.yaml" />
+
+    <!-- Start the panorama_node -->
+    <node name="panorama_node" pkg="lidar_point_to_panorama" type="panorama_node" output="screen">
+    </node>
+</launch>

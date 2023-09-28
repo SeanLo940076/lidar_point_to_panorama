@@ -1,0 +1,18 @@
+
+<launch>
+    <!-- Load parameters from parameters.yaml -->
+    <rosparam file="$(find lidar_point_to_panorama)/config/parameters.yaml" />
+
+    <!-- Start filter_node -->
+    <node name="filter_node" pkg="lidar_point_to_panorama" type="filter_node" output="screen">
+    </node>
+
+    <!-- Start rotate_node -->
+    <node name="rotate_node" pkg="lidar_point_to_panorama" type="rotate_node" output="screen">
+    </node>
+
+    <!-- Start convert_node -->
+    <node name="convert_node" pkg="lidar_point_to_panorama" type="convert_node" output="screen">
+    </node>
+
+</launch>
