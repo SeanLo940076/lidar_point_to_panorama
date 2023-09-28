@@ -4,7 +4,9 @@
 ## How to use
 
 	roslaunch lidar_point_to_panorama panorama.launch
-	roslaunch lidar_point_to_panorama panorama_all.launch 
+or
+	
+    roslaunch lidar_point_to_panorama panorama_all.launch 
 
 All settings can be adjusted in the parameters.yaml file. This includes three functionalities:
 
