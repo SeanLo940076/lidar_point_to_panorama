@@ -1,5 +1,5 @@
 # lidar_point_to_panorama
-[![Demo Image](./images/demo.png)]
+![Demo Image](./images/Demo.png)
 
 ## How to use
 
